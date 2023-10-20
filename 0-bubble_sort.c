@@ -13,8 +13,6 @@ void bubble_sort(int *array, size_t size)
 	size_t i;
 	size_t tmp;
 
-	int count = 0;
-
 	do {
 		swapped = 0;
 		for (i = 0; i < size - 1; i++)
@@ -26,10 +24,7 @@ void bubble_sort(int *array, size_t size)
 				array[i + 1] = tmp;
 				swapped = 1;
 				print_array(array, size);
-				count++;
 			}
 		}
 	} while (swapped);
-
-	printf("%d", count);
 }
