@@ -11,31 +11,34 @@
  */
 int partition(int *array, int low, int high, size_t size)
 {
-	int i = low - 1, aux, j;
+	int j, tmp;
+	int pivot = array[high];
+	int i = low - 1;
 
 	for (j = low; j <= high - 1; j++)
 	{
-		if (array[j] < array[low])
+		if (array[j] < pivot)
 		{
 			i++;
-			if (i < j)
+			if (i != j)
 			{
-				aux = array[i];
+				tmp = array[i];
 				array[i] = array[j];
-				array[j] = aux;
+				array[j] = tmp;
 				print_array(array, size);
 			}
 		}
 	}
-	if (array[i + 1] > array[high])
+	i++;
+	if (i != high)
 	{
-		aux = array[i + 1];
-		array[i + 1] = array[high];
-		array[high] = aux;
+		tmp = array[i];
+		array[i] = array[high];
+		array[high] = tmp;
 		print_array(array, size);
 	}
 
-	return (i + 1);
+	return (i);
 }
 
 /**
