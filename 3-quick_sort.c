@@ -15,9 +15,6 @@ int partition(int *array, int low, int high, size_t size)
 	int pivot = array[high];
 	int i = low - 1;
 
-	if (array == NULL)
-		return;
-
 	for (j = low; j <= high - 1; j++)
 	{
 		if (array[j] < pivot)
@@ -71,5 +68,7 @@ void quickSort(int *array, int low, int high, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
+	if (array == NULL)
+		return;
 	quickSort(array, 0, size - 1, size);
 }
